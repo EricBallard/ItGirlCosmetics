@@ -1,0 +1,90 @@
+.navbar {
+    font-family: 'Kanit', sans-serif;
+    letter-spacing: 2px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    text-align: center;
+}
+
+.nav {
+    background-color: var(--lavender_pink);
+
+    width: 100vw;
+    height: 5vh;
+
+    border: 1px solid var(--licorice);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.title {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 8px;
+
+    color: var(--lavender_pink)
+}
+
+.sub-text {
+    font-size: 18px;
+    margin: 2.5vh;
+
+    font-weight: 400;
+    color: var(--licorice);
+}
+
+.nav-option {
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 24px;
+    font-weight: 600;
+
+
+    color: var(--amaranth_purple);
+    -webkit-text-fill-color: transparent;
+
+    background-size: 200% 100%;
+    background-position: top left;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, var(--amaranth_purple), var(--amaranth_purple) 33.33333%, var(--dogwood_rose) 66.66666%, var(--amaranth_purple));
+
+    transition: font-weight, .2s linear, font-size .2s linear, background-position 1s linear;
+
+}
+
+.nav-option.selected {
+    color: var(--alice_blue);
+    -webkit-text-fill-color: var(--alice_blue);
+
+}
+
+.nav-option:hover {
+    font-weight: 700;
+    font-size: 32px;
+
+    animation: colorflash 4s infinite;
+}
+
+@keyframes colorflash {
+    from {
+        background-size: 200% 100%;
+        background-position: top left;
+    }
+    50%{
+        background-position: top left 100%;
+    }
+    to {
+        background-size: 200% 100%;
+        background-position: top left;
+    }
+  }
