@@ -1,5 +1,4 @@
 .navbar {
-    font-family: 'Kanit', sans-serif;
     letter-spacing: 2px;
 
     display: flex;
@@ -9,23 +8,40 @@
     text-align: center;
 }
 
-.nav {
+.nav,
+.mobile-nav {
+    position: absolute;
+    top: 75px;
+
+    z-index: 999;
+
     background-color: var(--lavender_pink);
 
-    width: 100vw;
-    height: 5vh;
+    width: 100%;
+    height: 50px;
 
     border: 1px solid var(--licorice);
+    border-left: none;
+    border-right: none;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    transition: all .5s ease-in-out;
 }
 
+.title-holder {
+    top: 0;
+    margin: 0;
+    padding: 0;
+    height: 75px;
+}
 
 .title {
+    line-height: 40px;
     margin: 0;
-    font-size: 48px;
+    font-size: min(5vw, 48px);
     font-weight: 500;
     letter-spacing: 8px;
 
@@ -33,8 +49,10 @@
 }
 
 .sub-text {
-    font-size: 18px;
-    margin: 2.5vh;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
 
     font-weight: 400;
     color: var(--licorice);
@@ -75,16 +93,71 @@
     animation: colorflash 4s infinite;
 }
 
+@media (max-width: 650px) {
+    .sub-text {
+        font-size: 12px;
+    }
+}
+
 @keyframes colorflash {
     from {
         background-size: 200% 100%;
         background-position: top left;
     }
-    50%{
+
+    50% {
         background-position: top left 100%;
     }
+
     to {
         background-size: 200% 100%;
         background-position: top left;
     }
-  }
+}
+
+/* MOBILE NAV */
+.mobile-navbar {
+    letter-spacing: 2px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    text-align: center;
+}
+
+.mobile-nav-option {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+}
+
+.mobile-nav-option.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.mobile-nav.opened {
+    height: 55%;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.menu-control {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.mobile-options {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}

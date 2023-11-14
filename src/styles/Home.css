@@ -1,23 +1,28 @@
+.home{
+    position: relative;
+    top: 0;
+
+    width: 100%;
+}
+
 .logo {
-    position: fixed;
-    height: 50%;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    height: min(50vh, 512px);
+    width: auto;
     z-index: 9;
 }
 
 .video-holder {
-    position: relative;
-    left: -5%;
-    border: 1px solid green;
     overflow: hidden;
-
-    height: 50vh;
-    width: 110vw;
+    max-height: 50vh;
+    width: 100%;
+    left: 0;
 }
 
 .video {
     top: -55%;
-
-    position: relative;
     width: auto;
     height: 75vw;
 }
