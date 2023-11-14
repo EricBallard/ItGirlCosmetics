@@ -5,31 +5,55 @@
     width: 100%;
 }
 
+.logo-holder{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: absolute;
+    min-height: 40vh;
+    max-height: 70vw;
+    width: 100%;
+    left: 0;
+}
+
 .logo {
+    position: relative;
+    top: 50%;
+    
     pointer-events: none;
     user-select: none;
     position: absolute;
-    height: min(50vh, 512px);
+
+    height: min(40vh, 512px);
     width: auto;
+
     z-index: 9;
 }
 
 .video-holder {
     overflow: hidden;
-    max-height: 50vh;
+    min-height: 40vh;
+    max-height: 60vh;
     width: 100%;
     left: 0;
+
+    background-color: var(--licorice);
 }
 
 .video {
-    top: -55%;
+    position: relative;
     width: auto;
     height: 75vw;
+    
+    left: -10vw;
+    top: -20vh;
 }
+
 
 @media screen and (max-width: 1600px) {
     .video {
-        top: 0;
+        top: -40%;
         left: -10%;
         height: 70vw;
     }
@@ -38,6 +62,8 @@
 @media screen and (max-width: 1200px) {
 
     .video {
+        top: -80%;
+        left: -20%;
         height: 80vw;
     }
 }

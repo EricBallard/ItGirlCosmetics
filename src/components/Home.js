@@ -11,10 +11,12 @@ const Home = () => {
 
     return (
         <div className='home'>
-            <img className='logo' alt='logo' src='/logo.png' />
+            <div className="logo-holder">
+                <img className='logo' alt='logo' src='/logo.png' />
+            </div>
 
             <div className="video-holder">
-                <video  className='video' ref={videoRef}
+                <video className='video' ref={videoRef}
                     loop
                     autoPlay
                     muted

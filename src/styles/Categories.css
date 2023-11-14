@@ -9,7 +9,7 @@
     height: 100%;
 
     margin: 0;
-    border: 1px solid red;
+    border-top: 5px solid var(--licorice);
 }
 
 .media {
@@ -23,21 +23,32 @@
 }
 
 .option {
-    margin-top: 0;
-    margin-bottom: 1vh;
+    margin: 0;
+
 
     width: auto;
     height: 40vh;
 
     overflow: hidden;
+    border-bottom: 5px solid var(--licorice);
 }
 
+/* 4x4 */
 
 
+/* 2x2 */
+@media (max-width: 1000px) {
+    .option {
+        width: 50%;
+        height: 40vw;
+    }
+}
 
+/* 1x1 */
 @media (max-width: 500px) {
     .option {
         height: 40vh;
+        width: auto;
     }
 }
 
@@ -49,6 +60,7 @@
     text-align: center;
     top: 75%;
     width: 50%;
+    min-width: 200px;
     left: 25%;
     z-index: 8;
 
@@ -63,6 +75,34 @@
     border: 5px solid var(--alice_blue);
 
     transition: all 1s ease-in-out;
+}
+
+@media (max-width: 1000px) {
+    .option-text {
+        top: 75%;
+    }
+}
+
+@media (max-width: 750px) {
+    .option-text {
+        top: 30%;
+        left: 25%;
+
+        max-width: 50%;
+        min-width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    .option-text {
+        top: 75%;
+    }
+}
+
+@media (max-height: 500px) {
+    .option-text {
+        top: 30%;
+    }
 }
 
 .option-text:hover {

@@ -1,6 +1,6 @@
 import '../styles/NavBar.css'
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Sling as Hamburger } from 'hamburger-react'
 const NAV_OPTIONS = [
     'HOME',
@@ -12,6 +12,8 @@ const NAV_OPTIONS = [
     'CONTACT'
 ]
 
+
+
 const NavBar = () => {
 
     // Selected Page 
@@ -20,6 +22,20 @@ const NavBar = () => {
     const [mobile, setMobile] = useState(window.innerWidth < 900)
 
     const [isOpen, setOpen] = useState(false)
+
+    /* Dynamical nav bar (Mobile/Desktop) */
+    useEffect(() => {
+        const resizeWindow = (e) => {
+            e.preventDefault()
+            setMobile(window.innerWidth < 900)
+        }
+
+        window.addEventListener("resize", resizeWindow);
+
+        return () => {
+            window.removeEventListener("resize", resizeWindow);
+        }
+    }, [])
 
     return (
 
@@ -43,7 +59,7 @@ const NavBar = () => {
                             <Hamburger toggled={isOpen} toggle={() => {
                                 setOpen(!isOpen)
                             }} rounded size={32}
-                                color='#0E0004'
+                                color='#E8F0FF'
                             />
                         </div>
 
