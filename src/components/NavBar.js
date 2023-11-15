@@ -1,7 +1,8 @@
 import '../styles/NavBar.css'
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Sling as Hamburger } from 'hamburger-react'
+
 const NAV_OPTIONS = [
     'HOME',
     'SKIN',
@@ -23,6 +24,8 @@ const NavBar = () => {
 
     const [isOpen, setOpen] = useState(false)
 
+    const [sticky, setSticky] = useState(false)
+
     /* Dynamical nav bar (Mobile/Desktop) */
     useEffect(() => {
         const resizeWindow = (e) => {
@@ -30,10 +33,17 @@ const NavBar = () => {
             setMobile(window.innerWidth < 900)
         }
 
+        const scrollWindow = (e) => {
+            e.preventDefault()
+            setSticky(window.scrollY >= 75)
+        }
+
         window.addEventListener("resize", resizeWindow);
+        window.addEventListener("scroll", scrollWindow);
 
         return () => {
             window.removeEventListener("resize", resizeWindow);
+            window.removeEventListener("scroll", scrollWindow);
         }
     }, [])
 
@@ -49,7 +59,7 @@ const NavBar = () => {
                 <h2 className='sub-text'>10% OFF WITH <wbr />PROMO CODE "MAGIC" AT CHECKOUT!</h2>
             </div>
 
-            <div className={(mobile ? 'mobile-nav' : 'nav') + (isOpen ? ' opened' : '')}>
+            <div className={(mobile ? 'mobile-nav': 'nav' ) + (sticky ? ' sticky' : '') + (isOpen ? ' opened' : '')}>
 
                 {/* (MOBILE) Hamburger Menu */}
                 {mobile ?
@@ -57,7 +67,14 @@ const NavBar = () => {
 
                         <div className="menu-control">
                             <Hamburger toggled={isOpen} toggle={() => {
-                                setOpen(!isOpen)
+
+                                if (isOpen) {
+                                    document.documentElement.style.setProperty('overflow-y', 'auto');
+                                    setOpen(false)
+                                } else {
+                                    document.documentElement.style.setProperty('overflow-y', 'hidden');
+                                    setOpen(true)
+                                }
                             }} rounded size={32}
                                 color='#E8F0FF'
                             />
