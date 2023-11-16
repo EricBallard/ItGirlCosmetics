@@ -5,10 +5,7 @@ import { Sling as Hamburger } from 'hamburger-react'
 
 const NAV_OPTIONS = [
     'HOME',
-    'SKIN',
-    'LIPS',
-    'EYES',
-    'BODY',
+    'SHOP',
     'ABOUT',
     'CONTACT'
 ]
@@ -59,11 +56,16 @@ const NavBar = () => {
                 <h2 className='sub-text'>10% OFF WITH <wbr />PROMO CODE "MAGIC" AT CHECKOUT!</h2>
             </div>
 
-            <div className={(mobile ? 'mobile-nav': 'nav' ) + (sticky ? ' sticky' : '') + (isOpen ? ' opened' : '')}>
+            <div className={(mobile ? 'mobile-nav' : 'nav') + (sticky ? ' sticky' : '') + (isOpen ? ' opened' : '')}>
 
                 {/* (MOBILE) Hamburger Menu */}
                 {mobile ?
                     <div className="mobile-menu">
+
+                        <div className="shopping-cart">
+                            <div className="item-count">0</div>
+                            <img className='cart' src='/images/shopping_cart.png' alt='cart' />
+                        </div>
 
                         <div className="menu-control">
                             <Hamburger toggled={isOpen} toggle={() => {
