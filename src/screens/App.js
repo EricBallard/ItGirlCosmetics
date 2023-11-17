@@ -5,6 +5,7 @@ import Home from '../components/Home'
 import Categories from '../components/Categories'
 import About from '../components/About'
 import Socials from '../components/Socials'
+import Contact from '../components/Contact.js'
 import Footer from '../components/Footer'
 
 /* Single-Page-Application Design  */
@@ -15,8 +16,9 @@ const App = () => {
             <NavBar />
             <Home />
             <Categories />
+            <Socials />
             <About />
-            {/* <Socials /> */}
+            <Contact />
             <Footer />
         </div>
     )
