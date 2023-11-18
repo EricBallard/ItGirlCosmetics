@@ -1,7 +1,6 @@
 import '../styles/Contact.css'
 
-import { HiOutlineChatAlt2 } from "react-icons/hi";
-
+import { HiOutlineChatAlt2, HiOutlineChevronDoubleDown } from "react-icons/hi";
 const Contact = ({ opened, setOpen }) => {
 
     return (
@@ -10,9 +9,16 @@ const Contact = ({ opened, setOpen }) => {
             <div className={"toggle-holder" + (opened ? ' open' : '')}>
                 <div className="toggle" onClick={e => {
                     e.preventDefault()
-                    setOpen(!opened)
+
+                    if (opened) {
+                        document.documentElement.style.setProperty('overflow-y', 'auto');
+                        setOpen(false)
+                    } else {
+                        document.documentElement.style.setProperty('overflow-y', 'hidden');
+                        setOpen(true)
+                    }
                 }}>
-                    <HiOutlineChatAlt2 />
+                    {opened ? <HiOutlineChevronDoubleDown /> : <HiOutlineChatAlt2 />}
                 </div>
             </div>
 
@@ -20,10 +26,10 @@ const Contact = ({ opened, setOpen }) => {
                 <form className='form'>
 
                     <label >EMAIL</label>
-                    <input type="email" />
+                    <input type="email" value='Enter your email'/>
 
                     <label>MESSAGE</label>
-                    <textarea />
+                    <textarea value='Enter your message'/>
 
                     <input type="submit" className='submit' />
                 </form>

@@ -1,16 +1,23 @@
 .toggle-holder {
     position: fixed;
+    z-index: 70;
     top: 85%;
 
-    width: 100%;
+    width: 20%;
     display: flex;
 
     left: 80%;
     transition: all .4s linear;
+
+    align-items: center;
+    justify-content: center;
+
 }
 
-.toggle-holder.open{
-    top: 30%;
+.toggle-holder.open {
+    top: 25%;
+    left: 0;
+    width: 100%;
 }
 
 .toggle {
@@ -29,38 +36,38 @@
     justify-content: center;
     align-items: center;
 
-    
+
     color: var(--alice_blue);
 
     transform: scale(1.0);
     transition: all .4s linear;
 }
 
-.toggle:hover{
+.toggle:hover {
     transform: scale(1.1);
 }
 
-.form-holder{
+.form-holder {
     visibility: hidden;
 
     position: fixed;
     z-index: 69;
     top: 100%;
-    left:0;
+    left: 0;
 
-    height: 60%;
+    height: 70%;
     width: 100%;
     display: flex;
 
     border-top: 2.5px solid var(--licorice);
-    background-color: rgba(247, 172, 207, .75);
+    background-color: rgba(247, 172, 207, .55);
 
     transition: all .4s linear;
 }
 
-.form-holder.open{
+.form-holder.open {
     visibility: visible;
-    top: 40%;
+    top: 30%;
 }
 
 /* FORM */
@@ -83,7 +90,7 @@
 }
 
 textarea {
-    height: 100px;
+    height: 175px;
     padding: 10px;
     resize: none;
 }
@@ -100,18 +107,19 @@ textarea {
     background-color: var(--alice_blue);
     border-color: var(--licorice);
 
-    min-height: 35px;
+    min-height: 50px;
     font-size: 18px;
     text-align: center;
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     border: 2.5px solid var(--licorice);
 
 }
 
 label {
-    margin-left: 12.5px;
+    margin-top: auto;
+    margin-bottom: auto;
     color: var(--licorice);
 }
 
@@ -123,6 +131,7 @@ input:focus {
 .submit {
     margin-top: 20px;
     width: 120%;
+    height: 100px;
     color: var(--alice_blue);
     text-transform: uppercase;
     background-color: var(--amaranth_purple);

@@ -11,7 +11,6 @@
         radial-gradient(ellipse at bottom, var(--licorice), transparent);
 
 
-    border-bottom: 5px solid var(--licorice);
     margin: 0;
 }
 

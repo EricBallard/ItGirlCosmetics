@@ -12,7 +12,7 @@ const NAV_OPTIONS = [
 
 
 
-const NavBar = () => {
+const NavBar = ({isChatOpen}) => {
 
     // Selected Page 
     const [selected, setSelected] = useState('HOME')
@@ -71,7 +71,9 @@ const NavBar = () => {
                             <Hamburger toggled={isOpen} toggle={() => {
 
                                 if (isOpen) {
-                                    document.documentElement.style.setProperty('overflow-y', 'auto');
+                                    if (!isChatOpen) {
+                                        document.documentElement.style.setProperty('overflow-y', 'auto');
+                                    }
                                     setOpen(false)
                                 } else {
                                     document.documentElement.style.setProperty('overflow-y', 'hidden');

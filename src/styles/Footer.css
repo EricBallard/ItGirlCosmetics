@@ -1,4 +1,7 @@
 .footer {
+    border-top: 5px solid var(--amaranth_purple);
+
+
     display: flex;
     flex-direction: column;
 

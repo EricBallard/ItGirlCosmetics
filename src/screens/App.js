@@ -16,15 +16,21 @@ const App = () => {
     const [isChatOpen, setChatOpen] = useState(false)
 
     return (
-        <div className={'app' + (isChatOpen ? ' blur' : '')}>
-            <NavBar />
-            <Home />
-            <Categories />
-            <InstaFeed />
-            <About />
-            <Footer />
+        <div className='app'>
+
+            <NavBar isChatOpen={isChatOpen}/>
+
+
+            <div className={"landing" + (isChatOpen ? ' blur' : '')}>
+                <Home />
+                <Categories />
+                <InstaFeed />
+                <About />
+                <Footer />
+            </div>
 
             <Contact opened={isChatOpen} setOpen={setChatOpen} />
+
         </div>
     )
 }
