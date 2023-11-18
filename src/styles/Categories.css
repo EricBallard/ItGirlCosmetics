@@ -42,6 +42,8 @@
     }
 
     .option.odd{
+        width: calc(25% - 5px);
+        border-right: 5px solid var(--licorice);
     }
 }
 
@@ -50,7 +52,6 @@
     .option {
         width: 50%;
         height: 40vw;
-
     }
 
     .option.odd{
@@ -91,9 +92,13 @@
     font-size: 32px;
 
     background-color: rgba(247, 172, 207, 0.5);
+
+    padding-left: 2.5px;
+    padding-right: 2.5px;
     margin: 0;
 
     border: 5px solid var(--alice_blue);
+    border-radius: 8px;
 
     transition: all 1s ease-in-out;
 }

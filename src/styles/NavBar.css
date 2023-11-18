@@ -1,5 +1,6 @@
 .navbar {
     letter-spacing: 2px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -21,8 +22,8 @@
     height: 50px;
 
     border: 2.5px solid var(--licorice);
-    border-left: none;
     border-right: none;
+    border-left: none;
 
     display: flex;
     flex-direction: row;

@@ -15,8 +15,10 @@ const Categories = () => {
 
             {OPTIONS.map(option => {
                 return (
-                    <div key={option} className={"option" +
-                        (option === 'skin' || option === 'eyes' ? ' odd' : '')} >
+                    <div key={option} className={"option" + (
+                        option === 'skin' || option === 'eyes' ? ' odd'
+                            : option === 'lips' && window.innerWidth >= 1000 ? ' odd' : ''
+                    )} >
 
                         <p className='option-text'>
                             SHOP {option.toUpperCase()}

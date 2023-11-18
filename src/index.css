@@ -34,3 +34,13 @@ body {
     margin: 0;
 }
 
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--amaranth_purple);
+    background: var(--licorice);
+}
+
+::selection {
+    color: var(--amaranth_purple);
+    background: var(--licorice);
+}

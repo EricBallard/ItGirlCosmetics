@@ -1,4 +1,129 @@
-.contact{
+.toggle-holder {
+    position: fixed;
+    top: 85%;
+
     width: 100%;
-    height: 20vh;
+    display: flex;
+
+    left: 80%;
+    transition: all .4s linear;
+}
+
+.toggle-holder.open{
+    top: 30%;
+}
+
+.toggle {
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+
+    background-color: var(--amaranth_purple);
+    box-shadow: 0px 5px 5px var(--licorice);
+
+    border-radius: 32px;
+
+    font-size: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    color: var(--alice_blue);
+
+    transform: scale(1.0);
+    transition: all .4s linear;
+}
+
+.toggle:hover{
+    transform: scale(1.1);
+}
+
+.form-holder{
+    visibility: hidden;
+
+    position: fixed;
+    z-index: 69;
+    top: 100%;
+    left:0;
+
+    height: 60%;
+    width: 100%;
+    display: flex;
+
+    border-top: 2.5px solid var(--licorice);
+    background-color: rgba(247, 172, 207, .75);
+
+    transition: all .4s linear;
+}
+
+.form-holder.open{
+    visibility: visible;
+    top: 40%;
+}
+
+/* FORM */
+.form {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    font-size: 20px;
+
+    overflow: hidden;
+}
+
+textarea {
+    height: 100px;
+    padding: 10px;
+    resize: none;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+input,
+textarea {
+    color: var(--amaranth_purple);
+    width: 110%;
+
+    background-color: var(--alice_blue);
+    border-color: var(--licorice);
+
+    min-height: 35px;
+    font-size: 18px;
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    border: 2.5px solid var(--licorice);
+
+}
+
+label {
+    margin-left: 12.5px;
+    color: var(--licorice);
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.submit {
+    margin-top: 20px;
+    width: 120%;
+    color: var(--alice_blue);
+    text-transform: uppercase;
+    background-color: var(--amaranth_purple);
 }
