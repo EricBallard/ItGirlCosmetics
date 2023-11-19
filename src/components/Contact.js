@@ -26,10 +26,10 @@ const Contact = ({ opened, setOpen }) => {
                 <form className='form'>
 
                     <label >EMAIL</label>
-                    <input type="email" value='Enter your email'/>
+                    <input type="email" defaultValue='Enter your email'/>
 
                     <label>MESSAGE</label>
-                    <textarea value='Enter your message'/>
+                    <textarea defaultValue='Enter your message'/>
 
                     <input type="submit" className='submit' />
                 </form>

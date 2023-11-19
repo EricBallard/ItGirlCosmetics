@@ -47,6 +47,9 @@
     margin: 0;
     padding: 0;
     height: 75px;
+
+    width: 100%;
+    background-color: var(--alice_blue);
 }
 
 .title {
@@ -66,9 +69,11 @@
     margin-top: 1vh;
 
     font-weight: 400;
-    color: var(--lavender_pink);
+    color: var(--licorice);
 }
 
+
+/* Page Options */
 .nav-option,
 .mobile-nav-option {
     user-select: none;
@@ -82,15 +87,25 @@
     color: var(--alice_blue);
 }
 
-.nav-option.selected,.mobile-nav-option.selected {
-    color: var(--licorice);
-    -webkit-text-fill-color: var(--licorice);
+.mobile-nav-option {
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+
+    font-weight: 700;
+    font-size: 36px;
+
+    display: inline;
+    justify-content: center;
+    transition: font-size .4s ease-in, font-weight, .6s linear, background-position 1s linear, opacity 1s linear;
+    -webkit-transition: font-size .4s ease-in, font-weight, .6s linear, background-position 1s linear, opacity 1s linear;
+
 }
 
+/* Hover Page Option */
 .nav-option:hover,
 .mobile-nav-option:hover {
-    font-weight: 700;
-    font-size: 32px;
+    font-size: 48px;
 }
 
 @media (max-width: 650px) {
@@ -99,9 +114,26 @@
     }
 }
 
+/* SELECTED */
+.nav-option.selected,
+.mobile-nav-option.selected {
+    color: var(--licorice);
+    -webkit-text-fill-color: var(--licorice);
+}
+
+
+.mobile-nav-option.hidden {
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1px;
+    font-weight: 400;
+
+    transition: all .1s;
+}
 
 /* MOBILE NAV */
 .mobile-navbar {
+    height: 125px;
     letter-spacing: 2px;
 
     display: flex;
@@ -109,31 +141,7 @@
 
     align-items: center;
     text-align: center;
-}
-
-.mobile-nav-option {
-    visibility: visible;
-    opacity: 1;
-
-    font-weight: 700;
-    font-size: 32px;
-
-    animation: colorflash 6s infinite;
-
-
-    display: inline;
-    justify-content: center;
-    transition: font-size .4s ease-in, font-weight, .4s linear, background-position 1s linear, opacity 1s linear;
-    -webkit-transition: font-size .4s ease-in, font-weight, .4s linear, background-position 1s linear, opacity 1s linear;
-
-}
-
-.mobile-nav-option.hidden {
-    visibility: hidden;
-    opacity: 0;
-    font-size: 1px;
-
-    transition: all .1s;
+    width: 100%;
 }
 
 .mobile-nav.opened {
@@ -167,7 +175,7 @@
 }
 
 /* SHOPPING CART */
-.shopping-cart{
+.shopping-cart {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -182,6 +190,7 @@
 .cart {
     height: 32px;
     width: 32px;
+    color: var(--alice_blue);
 }
 
 .item-count {

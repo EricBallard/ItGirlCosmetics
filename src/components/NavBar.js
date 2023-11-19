@@ -3,6 +3,9 @@ import '../styles/NavBar.css'
 import { useState, useEffect } from 'react';
 import { Sling as Hamburger } from 'hamburger-react'
 
+import { HiShoppingCart } from "react-icons/hi";
+
+
 const NAV_OPTIONS = [
     'HOME',
     'SHOP',
@@ -10,18 +13,19 @@ const NAV_OPTIONS = [
     'CONTACT'
 ]
 
-
-
-const NavBar = ({isChatOpen}) => {
-
-    // Selected Page 
-    const [selected, setSelected] = useState('HOME')
+const NavBar = ({ isChatOpen, selected, setSelected }) => {
 
     const [mobile, setMobile] = useState(window.innerWidth < 900)
 
     const [isOpen, setOpen] = useState(false)
 
     const [sticky, setSticky] = useState(false)
+
+
+    const selectPage = (page) => {
+        setSelected(page)
+        setOpen(false)
+    }
 
     /* Dynamical nav bar (Mobile/Desktop) */
     useEffect(() => {
@@ -64,7 +68,8 @@ const NavBar = ({isChatOpen}) => {
 
                         <div className="shopping-cart">
                             <div className="item-count">0</div>
-                            <img className='cart' src='/images/shopping_cart.png' alt='cart' />
+
+                            <HiShoppingCart className='cart' />
                         </div>
 
                         <div className="menu-control">
@@ -91,8 +96,7 @@ const NavBar = ({isChatOpen}) => {
                                 return (
                                     <div className={
                                         'mobile-nav-option' + (isOpen ? '' : ' hidden') + (selected === page ? ' selected' : '')
-                                    } key={page}>
-
+                                    } key={page} onClick={() => selectPage(page)}>
                                         {page}
                                     </div>
                                 )
@@ -106,7 +110,7 @@ const NavBar = ({isChatOpen}) => {
                         return (
                             <div className={
                                 'nav-option' + (selected === page ? ' selected' : '')
-                            } key={page}>
+                            } key={page} onClick={() => selectPage(page)}>
 
                                 {page}
                             </div>

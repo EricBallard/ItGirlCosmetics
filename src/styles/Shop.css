@@ -1,0 +1,94 @@
+.shop {
+    position: relative;
+
+    height: calc(80vh - 125px);
+    width: 100%;
+
+    background: radial-gradient(ellipse at top, var(--lavender_pink), transparent),
+        radial-gradient(ellipse at bottom, var(--licorice), transparent);
+}
+
+/*
+ NavBar,h=125px
+ Footer,h=20vh
+*/
+
+/* FILTERS*/
+
+.filter-holder {
+    position: relative;
+    top: 25px;
+    left: -2.5px;
+    width: 100%;
+    height: 75px;
+    
+    background-color: rgba(255, 255, 255, 0.25);
+
+    border: 2.5px solid var(--licorice);
+
+    display: flex;
+}
+
+.category-holder {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.categories {
+    position: fixed;
+    left: 0%;
+
+    width: calc(50% + 16px);
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* SEARCH*/
+.search-holder {
+    position: relative;
+    left: -8px;
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 8px;
+
+}
+
+/* ~~~~~~~ */
+.search-holder>input {
+    position: relative;
+
+    padding-right: 40px;
+    left: 32px;
+
+    width: 95%;
+    background-color: transparent;
+
+    border-radius: 8px;
+
+    margin-bottom: 0;
+}
+
+.search-icon {
+    color: var(--alice_blue);
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.filter>img {
+    width: 32px;
+    height: 32px;
+
+}
