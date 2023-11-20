@@ -14,6 +14,15 @@ const Shop = () => {
 
     const [isOptionsOpen, setOptionsOpen] = useState(false)
 
+    const [maxPrice, setMaxPrice] = useState(30)
+
+    const handleCheckboxToggle = (category) => {
+        const checkbox = document.getElementById(category);
+        if (checkbox) {
+            checkbox.checked = !checkbox.checked;
+        }
+    };
+
     return (
         <div className="shop">
 
@@ -41,15 +50,26 @@ const Shop = () => {
                         </div>
 
                         <div className="filter-title">
-                            <h4>PRICE</h4>
+                            <h4>MAX PRICE</h4>
                         </div>
 
                         <div className="filter-sub category">
 
                             {CATEGORIES.map(category => {
                                 return (
-                                    <div className="filter-option-category">
-                                        <input type="checkbox" id={category} name={category} defaultChecked />
+                                    <div
+                                        className="filter-option-category"
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={() => handleCheckboxToggle(category)}
+                                    >
+
+                                        <div className="checkbox-wrapper">
+
+                                            <input type="checkbox" id={category} name={category} defaultChecked />
+                                            <span className='input-check' />
+                                        </div>
+
+
                                         <div className="cbox-lbl-wrapper">
                                             <label for={category}>{category}</label>
                                         </div>
@@ -59,8 +79,17 @@ const Shop = () => {
                         </div>
 
                         <div className="filter-sub">
-                            <div className="range-holder">
-                                <input type="range" className='price-range' />
+                            <div className="range-holder price">
+                                <input id='price-range' type="range" className='price-range' min='1' max='30' defaultValue='30'
+                                    onInput={e => setMaxPrice(e.target.value)} />
+
+                                <div className="price-range-holder">
+
+                                    <label for='price-range' style={{
+                                        width: '50px'
+                                    }}>${maxPrice == 30 ? '30+' : maxPrice}</label>
+                                </div>
+
                             </div>
                         </div>
                     </div>
