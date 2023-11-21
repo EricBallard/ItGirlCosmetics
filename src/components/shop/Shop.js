@@ -1,4 +1,6 @@
-import '../styles/Shop.css'
+import '../../styles/shop/Shop.css'
+
+import ShopItem from './ShopItem'
 
 import { BsSearch } from "react-icons/bs";
 import { IoFilter } from "react-icons/io5";
@@ -61,17 +63,17 @@ const Shop = () => {
                                         className="filter-option-category"
                                         style={{ cursor: 'pointer' }}
                                         onClick={() => handleCheckboxToggle(category)}
+                                        key={category}
                                     >
 
                                         <div className="checkbox-wrapper">
-
                                             <input type="checkbox" id={category} name={category} defaultChecked />
                                             <span className='input-check' />
                                         </div>
 
 
                                         <div className="cbox-lbl-wrapper">
-                                            <label for={category}>{category}</label>
+                                            <label htmlFor={category}>{category}</label>
                                         </div>
                                     </div>
                                 )
@@ -85,7 +87,7 @@ const Shop = () => {
 
                                 <div className="price-range-holder">
 
-                                    <label for='price-range' style={{
+                                    <label htmlFor='price-range' style={{
                                         width: '50px'
                                     }}>${maxPrice == 30 ? '30+' : maxPrice}</label>
                                 </div>
@@ -97,10 +99,14 @@ const Shop = () => {
                 </div>
 
                 <div className={"item-list" + (isOptionsOpen ? ' inactive' : '')}>
-                    <div className="item" />
-                    <div className="item" />
 
-                    items
+                    <div className="item a">
+                        <ShopItem />
+                    </div>
+
+                    <div className="item b"> </div>
+
+
                 </div>
 
             </div>

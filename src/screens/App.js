@@ -1,17 +1,20 @@
 import '../styles/App.css'
 
+// Global
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-
-// Landing
-import Home from '../components/Home'
-import Categories from '../components/Categories'
-import About from '../components/About'
-import InstaFeed from '../components/InstaFeed'
 import Contact from '../components/Contact'
 
+// Home
+import Home from '../components/home/Home'
+import Categories from '../components/home/Categories'
+import About from '../components/home/About'
+
+
+import InstaFeed from '../components/InstaFeed'
+
 // Shop
-import Shop from '../components/Shop'
+import Shop from '../components/shop/Shop'
 
 import { useState } from 'react'
 

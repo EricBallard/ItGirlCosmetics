@@ -1,4 +1,4 @@
-import '../styles/Home.css'
+import '../../styles/home/Home.css'
 
 import React, { useRef, useEffect } from "react"
 

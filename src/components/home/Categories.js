@@ -1,4 +1,4 @@
-import '../styles/Categories.css'
+import '../../styles/home/Categories.css'
 
 
 const OPTIONS = [
