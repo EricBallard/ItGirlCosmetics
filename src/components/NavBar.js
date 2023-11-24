@@ -1,6 +1,10 @@
 import '../styles/NavBar.css'
 
+
 import { useState, useEffect } from 'react';
+
+import { Link } from "react-router-dom";
+
 import { Sling as Hamburger } from 'hamburger-react'
 
 import { HiShoppingCart } from "react-icons/hi";
@@ -9,8 +13,8 @@ import { HiShoppingCart } from "react-icons/hi";
 const NAV_OPTIONS = [
     'HOME',
     'SHOP',
-    'ABOUT',
-    'CONTACT'
+    'CHECKOUT',
+    'APPOINTMENTS'
 ]
 
 const NavBar = ({ isChatOpen, selected, setSelected }) => {
@@ -20,7 +24,6 @@ const NavBar = ({ isChatOpen, selected, setSelected }) => {
     const [isOpen, setOpen] = useState(false)
 
     const [sticky, setSticky] = useState(false)
-
 
     const selectPage = (page) => {
         setSelected(page)
@@ -94,11 +97,13 @@ const NavBar = ({ isChatOpen, selected, setSelected }) => {
                             {/* Map Page Options */}
                             {NAV_OPTIONS.map(page => {
                                 return (
-                                    <div className={
+                                    <Link className={
                                         'mobile-nav-option' + (isOpen ? '' : ' hidden') + (selected === page ? ' selected' : '')
-                                    } key={page} onClick={() => selectPage(page)}>
+                                    } key={page} to={`/${page.toLocaleLowerCase()}`} onClick={() => selectPage(page)} style={{
+                                        textDecoration: (page === 'APPOINTMENTS' ? 'line-through' : 'none')
+                                    }}>
                                         {page}
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>

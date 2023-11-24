@@ -1,12 +1,11 @@
 import '../../styles/shop/Shop.css'
 
+import { useState } from 'react'
 import ShopItem from './ShopItem'
 
 import { BsSearch } from "react-icons/bs";
 import { IoFilter } from "react-icons/io5";
 
-
-import { useState } from 'react'
 
 const CATEGORIES = [
     'Face', 'Lips', 'Eyes', 'Body'
@@ -100,12 +99,7 @@ const Shop = () => {
 
                 <div className={"item-list" + (isOptionsOpen ? ' inactive' : '')}>
 
-                    <div className="item a">
-                        <ShopItem />
-                    </div>
-
-                    <div className="item b"> </div>
-
+                    <ShopItem />
 
                 </div>
 

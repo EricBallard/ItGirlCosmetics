@@ -1,9 +1,18 @@
 import '../styles/App.css'
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+
 // Global
 import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
 import Contact from '../components/Contact'
+
+// Footer
+import Footer from '../components/footer/Footer'
+import Policy from '../components/footer/Policy'
 
 // Home
 import Home from '../components/home/Home'
@@ -28,26 +37,41 @@ const App = () => {
     return (
         <div className='app'>
 
-            <NavBar isChatOpen={isChatOpen} selected={selectedPage} setSelected={setSelectedPage} />
 
-            {(() => {
-                switch (selectedPage) {
-                    case 'SHOP':
-                        return <Shop />
-                    default:
-                        return <div className={"landing" + (isChatOpen ? ' blur' : '')}>
+            <Router>
+                <NavBar isChatOpen={isChatOpen} selected={selectedPage} setSelected={setSelectedPage} />
+
+
+                {/* Wrap your routes with the Router component */}
+                <Switch>
+                    {/* Define your routes using the Route component */}
+                    <Route path="/shop">
+                        <Shop />
+                    </Route>
+
+                    <Route path={['/item-policy', '/email-privacy-policy']}>
+                        <Policy />
+                    </Route>
+
+                    <Route path="/">
+                        <div className={"landing" + (isChatOpen ? ' blur' : '')}>
                             <Home />
                             <Categories />
-                            <InstaFeed />
+                            {/* <InstaFeed /> */}
                             <About />
                         </div>
-                }
-            })()}
+                    </Route>
 
-            <Contact opened={isChatOpen} setOpen={setChatOpen} />
+                </Switch>
 
-            <Footer />
-        </div>
+                <Contact opened={isChatOpen} setOpen={setChatOpen} />
+
+                <Footer />
+            </Router>
+
+
+
+        </div >
     )
 }
 
