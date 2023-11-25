@@ -2,9 +2,8 @@
     position: relative;
     top: 0px;
 
-    min-height: 65vh;
     width: 100%;
-    height: 100%;
+    height: calc(80vh - 125px);
 
     background-color: var(--lavender_pink);
 
@@ -29,7 +28,7 @@
 
 @media (min-width: 900px) {
     .policy {
-        top: 50px;
+        /* top: 50px; */
     }
 
 }

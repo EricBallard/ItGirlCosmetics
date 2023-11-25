@@ -1,0 +1,16 @@
+.checkout{
+    position: relative;
+
+    height: calc(80vh - 125px);
+    width: 100%;
+
+    background: radial-gradient(ellipse at top, var(--lavender_pink), transparent),
+        radial-gradient(ellipse at bottom, var(--licorice), transparent);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: hidden;
+}

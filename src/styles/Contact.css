@@ -1,7 +1,7 @@
 .toggle-holder {
     position: fixed;
     z-index: 70;
-    top: 85%;
+    top: 82.5%;
 
     width: 20%;
     display: flex;
@@ -80,8 +80,6 @@
 
     align-items: center;
     justify-content: space-evenly;
-
-    backdrop-filter: blur(4px);
 
     padding: 20px;
     border-radius: 25px;

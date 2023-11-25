@@ -1,4 +1,4 @@
-import '../../styles/footer/Policy.css'
+import '../styles/Policy.css'
 
 import { useEffect, useState } from 'react'
 

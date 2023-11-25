@@ -14,7 +14,7 @@ const NAV_OPTIONS = [
     'HOME',
     'SHOP',
     'CHECKOUT',
-    'APPOINTMENTS'
+    // 'APPOINTMENTS'
 ]
 
 const NavBar = ({ isChatOpen, selected, setSelected }) => {
@@ -28,6 +28,10 @@ const NavBar = ({ isChatOpen, selected, setSelected }) => {
     const selectPage = (page) => {
         setSelected(page)
         setOpen(false)
+
+        if (!isChatOpen) {
+            document.documentElement.style.setProperty('overflow-y', 'auto');
+        }
     }
 
     /* Dynamical nav bar (Mobile/Desktop) */
