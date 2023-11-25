@@ -1,4 +1,6 @@
 .categories {
+    visibility: visible;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -10,6 +12,10 @@
 
     margin: 0;
     border-top: 5px solid var(--licorice);
+}
+
+.categories.hidden{
+    visibility: hidden;
 }
 
 .media {

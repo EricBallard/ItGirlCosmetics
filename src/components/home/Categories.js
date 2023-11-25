@@ -8,10 +8,10 @@ const OPTIONS = [
     'body'
 ]
 
-const Categories = () => {
+const Categories = ({hidden}) => {
 
     return (
-        <div className="categories">
+        <div className={"categories" + (hidden ? ' hidden' : '')}>
 
             {OPTIONS.map(option => {
                 return (

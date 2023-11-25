@@ -2,7 +2,7 @@ import '../../styles/home/Home.css'
 
 import React, { useRef, useEffect } from "react"
 
-const Home = () => {
+const Home = ({ showMore }) => {
 
     const videoRef = useRef(undefined);
     useEffect(() => {
@@ -21,8 +21,17 @@ const Home = () => {
                     autoPlay
                     muted
                     playsInline>
-                    <source src='/model_compressed.mp4' type="video/mp4" />Your browser does not support the video tag.
+                    <source src='/model.mp4' type="video/mp4" />Your browser does not support the video tag.
                 </video>
+            </div>
+
+            <div className="show-more">
+
+                <img alt='Swipe Up' src='/images/touch-swipe.png' />
+
+                <div className="swipe-txt">
+                    <h4>Swipe-up to see more!</h4>
+                </div>
             </div>
         </div>
     )

@@ -1,9 +1,9 @@
 import '../../styles/home/About.css'
 
-const About = () => {
+const About = ({hidden}) => {
 
     return (
-        <div className="about">
+        <div className={"about"+ (hidden ? ' hidden' : '')}>
 
             <div className="text-holder">
                 <p className='text'>

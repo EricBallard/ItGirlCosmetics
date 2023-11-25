@@ -1,4 +1,5 @@
 .about {
+    visibility: visible;
     display: flex;
     flex-direction: column;
 
@@ -12,6 +13,10 @@
 
 
     margin: 0;
+}
+
+.about.hidden {
+    visibility: hidden;
 }
 
 .img-holder {

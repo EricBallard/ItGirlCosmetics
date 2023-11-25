@@ -35,16 +35,16 @@ const App = () => {
 
     const [isChatOpen, setChatOpen] = useState(false)
 
+    const [showMore, setShowMore] = useState(false)
+
     return (
         <div className='app'>
-
 
             <Router>
                 <NavBar isChatOpen={isChatOpen} selected={selectedPage} setSelected={setSelectedPage} />
 
-
                 <Switch>
-                <Route path="/checkout">
+                    <Route path="/checkout">
                         <Checkout />
                     </Route>
 
@@ -58,10 +58,13 @@ const App = () => {
 
                     <Route path="/">
                         <div className={"landing" + (isChatOpen ? ' blur' : '')}>
-                            <Home />
-                            <Categories />
+                            <Home showMore={setShowMore} />
+
+                            <Categories hidden={!showMore} />
+
                             {/* <InstaFeed /> */}
-                            <About />
+                            
+                            <About hidden={!showMore} />
                         </div>
                     </Route>
 
