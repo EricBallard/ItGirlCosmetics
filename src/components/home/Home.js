@@ -1,21 +1,79 @@
 import '../../styles/home/Home.css'
 
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useState, useEffect } from "react"
 
-const Home = ({ showMore }) => {
+const Home = ({ showMore, setShowMore }) => {
+
+    const rootRef = useRef(undefined)
 
     const videoRef = useRef(undefined);
+
+    const [introAnim, setIntroAnim] = useState('')
+
+    const [swipeAnim, setSwipeAnim] = useState('')
+
+    const [swipeImg, setImg] = useState('/images/touch-down.png')
+
     useEffect(() => {
-        videoRef.current.defaultMuted = true;
-    })
+        // Mute video by default for browser to allow autoplay
+        videoRef.current.defaultMuted = true
+
+        setIntroAnim(' visible')
+
+        let timeoutID = undefined
+
+        const playSwipeAnim = () => {
+            timeoutID = setTimeout(() => {
+                setSwipeAnim(' visible')
+
+                timeoutID = setTimeout(() => {
+                    setImg('/images/touch-swipe.png')
+
+                    timeoutID = setTimeout(() => {
+                        setSwipeAnim(' reset')
+
+                        timeoutID = setTimeout(() => {
+                            setImg('/images/touch-down.png')
+                            playSwipeAnim()
+                        }, 1000)
+                    }, 3000)
+                }, 2000)
+            }, 2500);
+        }
+
+        playSwipeAnim()
+
+
+        const scrollWindow = () => {
+            console.log(window.scrollY)
+            // Is home div scrolled at least half way up
+            if (window.scrollY >= rootRef.current.offsetHeight / 4) {
+                setShowMore(true)
+
+                // Stop swipe anim
+                clearTimeout(timeoutID)
+
+                // Hide div
+
+            }
+        }
+
+        window.addEventListener("scroll", scrollWindow);
+
+        return () => {
+            clearTimeout(timeoutID)
+            window.removeEventListener('scroll', scrollWindow)
+        }
+    }, [])
+
 
     return (
-        <div className='home'>
-            <div className="logo-holder">
-                <img className='logo' alt='logo' src='/logo.png' />
+        <div className='home' ref={rootRef}>
+            <div className='logo-holder'>
+                <img className={'logo' + introAnim} alt='logo' src='/logo.png' />
             </div>
 
-            <div className="video-holder">
+            <div className={"video-holder" + introAnim}>
                 <video className='video' ref={videoRef}
                     loop
                     autoPlay
@@ -25,13 +83,11 @@ const Home = ({ showMore }) => {
                 </video>
             </div>
 
-            <div className="show-more">
+            <div className={"show-more" + introAnim} style={{
+                height: (showMore ? '0vh' : '15vh')
+            }}>
+                {!showMore ? <img alt='Swipe Up' src={swipeImg} className={'swipe-img' + swipeAnim} /> : undefined}
 
-                <img alt='Swipe Up' src='/images/touch-swipe.png' />
-
-                <div className="swipe-txt">
-                    <h4>Swipe-up to see more!</h4>
-                </div>
             </div>
         </div>
     )

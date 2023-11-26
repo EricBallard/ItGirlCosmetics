@@ -1,7 +1,7 @@
 import '../styles/NavBar.css'
 
 
-import { useState, useEffect } from 'react';
+import {  useState, useEffect } from 'react';
 
 import { Link } from "react-router-dom";
 
@@ -44,6 +44,7 @@ const NavBar = ({ isChatOpen, selected, setSelected }) => {
         const scrollWindow = (e) => {
             e.preventDefault()
             setSticky(window.scrollY >= 75)
+
         }
 
         window.addEventListener("resize", resizeWindow);

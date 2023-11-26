@@ -1,5 +1,5 @@
 .categories {
-    visibility: visible;
+    opacity: 1;
 
     display: flex;
     flex-direction: row;
@@ -11,18 +11,22 @@
     height: 100%;
 
     margin: 0;
-    border-top: 5px solid var(--licorice);
+    /* border-top: 5px solid var(--licorice); */
+
+    filter: blur(0px);
+    transition: all 1s linear;
 }
 
-.categories.hidden{
-    visibility: hidden;
+.categories.hidden {
+    opacity: 0;
+    filter: blur(64px);
 }
 
 .media {
+    position: relative;
     pointer-events: none;
     user-select: none;
 
-    position: relative;
     top: -200px;
     width: 500px;
     height: auto;
@@ -32,12 +36,18 @@
     margin: 0;
 
 
-    width: auto;
+    width: 100%;
     height: 40vh;
 
     overflow: hidden;
-    border-bottom: 5px solid var(--licorice);
+    border-bottom: 2.5px solid var(--licorice);
+
+    display: flex;
+    flex-direction: column;
+
+
 }
+
 
 /* 4x4 */
 @media (min-width: 1001px) {
@@ -61,8 +71,8 @@
     }
 
     .option.odd {
-        width: calc(50% - 5px);
-        border-right: 5px solid var(--licorice);
+        width: calc(50% - 2.5px);
+        border-right: 2.5px solid var(--licorice);
     }
 }
 
@@ -102,14 +112,14 @@
     font-size: 32px;
 
     background: radial-gradient(ellipse at top, var(--amaranth_purple), transparent),
-    radial-gradient(ellipse at bottom, transparent, transparent);
+        radial-gradient(ellipse at bottom, transparent, var(--lavender_pink));
 
 
     padding-left: 2.5px;
     padding-right: 2.5px;
     margin: 0;
 
-    border: 5px solid var(--alice_blue);
+    border: 2.5px solid var(--licorice);
     border-radius: 8px;
 
     transition: all 1s ease-in-out;
@@ -160,9 +170,10 @@
 
 @media (max-width: 500px) {
     .option-text {
-        display: inline;
         min-width: 1px;
-        top: 75%;
+        top: 65%;
+
+        min-height: 50px;
     }
 
     .media {

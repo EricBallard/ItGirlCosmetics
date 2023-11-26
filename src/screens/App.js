@@ -58,7 +58,7 @@ const App = () => {
 
                     <Route path="/">
                         <div className={"landing" + (isChatOpen ? ' blur' : '')}>
-                            <Home showMore={setShowMore} />
+                            <Home showMore={showMore} setShowMore={setShowMore} />
 
                             <Categories hidden={!showMore} />
 
@@ -70,7 +70,7 @@ const App = () => {
 
                 </Switch>
 
-                <Contact opened={isChatOpen} setOpen={setChatOpen} />
+                <Contact opened={isChatOpen} setOpen={setChatOpen} show={showMore}/>
 
                 <Footer />
             </Router>

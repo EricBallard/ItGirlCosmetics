@@ -1,12 +1,12 @@
 import '../styles/Contact.css'
 
 import { HiOutlineChatAlt2, HiOutlineChevronDoubleDown } from "react-icons/hi";
-const Contact = ({ opened, setOpen }) => {
+const Contact = ({ opened, setOpen, show }) => {
 
     return (
         <div className="contact">
 
-            <div className={"toggle-holder" + (opened ? ' open' : '')}>
+            <div className={"toggle-holder" + (opened ? ' open' : show ? '' : ' hidden')}>
                 <div className="toggle" onClick={e => {
                     e.preventDefault()
 

@@ -1,7 +1,7 @@
 .toggle-holder {
     position: fixed;
     z-index: 70;
-    top: 82.5%;
+    top: 90%;
 
     width: 20%;
     display: flex;
@@ -11,7 +11,11 @@
 
     align-items: center;
     justify-content: center;
+    visibility: visible;
+}
 
+.toggle-holder.hidden {
+    visibility: hidden;
 }
 
 .toggle-holder.open {
@@ -26,6 +30,8 @@
     height: 64px;
 
     background-color: var(--amaranth_purple);
+    border: 2.5px solid var(--licorice);
+    
     box-shadow: 0px 5px 5px var(--licorice);
 
     border-radius: 32px;
