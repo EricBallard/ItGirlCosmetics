@@ -42,25 +42,19 @@ const SHOP_ITEMS = [
 
 ]
 
+const MAX_ITEMS = SHOP_ITEMS.length
+
 const ShopItem = () => {
 
     const rootRef = useRef(undefined);
 
-    const [index, setIndex] = useState(0)
-
-    /* Slider State
-        -1=Moving left
-        0=Center
-        1=Moving right, from center
-        2=Move center, from right
-    */
-    const [tally, setTally] = useState(0)
-
-    const [pos, setPos] = useState('4%')
-
+    const [pos, setPos] = useState(0)
 
     const [width, setWidth] = useState(0)
 
+    const [index, setIndex] = useState(0)
+
+    const [endPoint, setEndPoint] = useState(-1)
 
     useEffect(() => {
         const handleResize = () => {
@@ -89,34 +83,56 @@ const ShopItem = () => {
 
             <div className="item-img-wrapper">
 
-                {/* <img src={SHOP_ITEMS[index].img_url} alt="shop-item" className={'item-img-bg' + (
-                    state !== 0 ? ' blur' : ''
-                )} /> */}
-
                 <div className="carousel-wrapper" style={{
                     left: pos,
-                    width: width * SHOP_ITEMS.length
+                    width: width * SHOP_ITEMS.length + 'px'
                 }}>
 
-                    <div className="carousel-items">
-                        {SHOP_ITEMS.map(item => {
-                            return (
-                                <div className="carousel-item-wrapper" key={item.name} style={{
-                                    width: width
-                                }}>
-                                    <img src={item.img_url} alt={item.name}></img>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    {SHOP_ITEMS.map(item => {
+                        return (
+                            <div className="carousel-item-wrapper" key={item.name} style={{
+                                width: width
+                            }}>
+                                <img src={item.img_url} alt={item.name}></img>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <div className="item-bg-wrapper" style={{
+                    width: width
+                }}>
+                    <img src={SHOP_ITEMS[index].img_url} alt="shop-item" className={'item-img-bg'} />
                 </div>
 
                 <IoIosArrowBack className='prev-item' onClick={() => {
-                    setPos(`calc(${pos} + ${width})`)
+                    if (index === 0) return
+                    else if (index - 1 === 0) {
+                        // Hiden left arrow at start of index
+                        setEndPoint(-1)
+                    } else {
+                        setEndPoint(0)
+                    }
+
+                    setIndex(index - 1)
+                    setPos(pos + width)
+                }} style={{
+                    visibility: (endPoint === -1 ? 'hidden' : 'visible')
                 }} />
 
                 <IoIosArrowForward className='next-item' onClick={() => {
+                    if (index + 1 === MAX_ITEMS) return
+                    else if (index + 1 === MAX_ITEMS - 1) {
+                        setEndPoint(1)
+                    } else {
+                        setEndPoint(0)
+                    }
 
+                    setIndex(index + 1)
+                    setPos(pos - width)
+
+                }} style={{
+                    visibility: (endPoint === 1 ? 'hidden' : 'visible')
                 }} />
 
             </div>

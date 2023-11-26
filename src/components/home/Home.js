@@ -22,7 +22,7 @@ const Home = ({ showMore, setShowMore }) => {
 
         let timeoutID = undefined
 
-        const playSwipeAnim = () => {
+        const playSwipeAnim = (initDelay) => {
             timeoutID = setTimeout(() => {
                 setSwipeAnim(' visible')
 
@@ -34,14 +34,14 @@ const Home = ({ showMore, setShowMore }) => {
 
                         timeoutID = setTimeout(() => {
                             setImg('/images/touch-down.png')
-                            playSwipeAnim()
+                            playSwipeAnim(1000)
                         }, 1000)
                     }, 3000)
                 }, 2000)
-            }, 2500);
+            }, initDelay);
         }
 
-        playSwipeAnim()
+        playSwipeAnim(2000)
 
 
         const scrollWindow = () => {

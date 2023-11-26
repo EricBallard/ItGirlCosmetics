@@ -66,10 +66,11 @@
     /* background-image: linear-gradient(var(--amaranth_purple), var(--licorice)); */
 }
 
-
 /* Back < */
 .prev-item {
     position: fixed;
+    z-index: 2;
+
     left: 2.5%;
 
     cursor: pointer;
@@ -83,6 +84,8 @@
 /* Forward > */
 .next-item {
     position: fixed;
+    z-index: 2;
+
     right: 2.5%;
 
     cursor: pointer;
@@ -97,82 +100,24 @@
     font-size: 72px;
 }
 
-
-.item-img.right {
-    left: -50%;
-    transform: scale(0);
-}
-
-.item-img.r-center {
-    animation: slide-from-right 1s;
-}
-
-@keyframes slide-from-right {
-    0% {
-        transform: scale(0);
-        left: 50%;
-    }
-
-
-    100% {
-        transform: scale(1);
-        left: 0%;
-    }
-}
-
-
-.item-img-bg.blur {}
-
-
-
-.item-img {
-    position: relative;
-    z-index: 2;
-    mix-blend-mode: multiply;
-
-    left: 0;
-    transform: scale(1);
-    transition: all .4s linear;
-}
-
-.item-img-bg {
-    opacity: 0.25;
-    position: absolute;
-    top: -12.5%;
-
-    height: 125%;
-    width: 100%;
-    filter: blur(8px);
-
-    left: -12.5%;
-    bottom: -25%;
-
-    transition: all 1s linear;
-}
-
-.pre-loaded-img {
-    display: none;
-}
-
-
 /* CAROUSEL */
 
 .carousel-wrapper {
-    height: 100%;
-
     position: absolute;
-    left: 5%;
+    height: calc((80vh - 125px) * .8);
+    width: 0px;
+    left: 0px;
+
+    background-color: white;
+
+
+    transition: left 1s;
 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-
-    transition: all 1s;
-
-
     justify-content: center;
     align-items: center;
-
 }
 
 .carousel-items {
@@ -182,14 +127,45 @@
 }
 
 .carousel-item-wrapper {
-    border: 2px solid green;
+    height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.carousel-items>img {
+.carousel-item-wrapper>img {
+    height: 75%;
+    width: auto;
+    mix-blend-mode: normal;
+}
+
+/* Background Image */
+
+.item-bg-wrapper {
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+.item-img-bg {
+    position: relative;
+    left: 5%;
+    top: -5%;
+
+    width: 75%;
+    height: auto;
+
+    opacity: .25;
+    /* mix-blend-mode: multiply; */
+
+    filter: blur(8px);
+    transition: all 1s linear;
+}
 
 
+.item-img-bg.blur {
+    opacity: 0;
 }
